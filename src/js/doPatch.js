@@ -17,6 +17,7 @@ function doPatch(rDom, patches) {
 
 function rNodeWalk(rNode) {
     // console.log([...rNode.childNodes])
+    //深度遍历，遍历到当前节点最底层，再依次向外
     const rnPatch = finalPatches[rnIndex++],
         childNodes = rNode.childNodes;
 
@@ -29,11 +30,13 @@ function rNodeWalk(rNode) {
         patchAction(rNode, rnPatch);
     }
 }
-let i = 0
+//let i = 0
 function patchAction(rNode, rnPatch) {
-    i++
-    console.log(i)
-    console.log(rNode)
+    //当前的rnode是最底层的节点，补丁也是最底层的补丁
+    //接下来就是属性对比，最后才是标签更改
+    // i++
+    //console.log(i)
+    //console.log(rNode)
 
     console.log(rnPatch)
 
